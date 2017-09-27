@@ -1,11 +1,40 @@
-# req-clustering-evaluation-2017
+# requirement-clustering-evaluation-2017
 
 ## Import from csv
 
-sqlite3 alpha.db << EOF
-create table alpha (ClusterAlgorithm, DistanceFunction, UsedFields, Tfidf, StopWords, Interpreted, Lemmatized, Source, Synonyms, GermaNetFunction, F1WeightedAvg REAL, F1WeightedStd REAL, CohesionAvg REAL, CohesionStd REAL, SeperationAvg REAL, SeperationStd REAL, SilhouetteAvg REAL, SilhouetteStd REAL, RuntimeAvg REAL);
-.separator ";"
-.import "alpha.csv" "alpha"
-DELETE from alpha WHERE SeperationAvg = 'SeperationAvg';
-DELETE from alpha WHERE ClusterAlgorithm = '';
-EOF
+	sqlite3 requirement-clustering-results.db << EOF
+	
+	create table alpha (ClusterAlgorithm, DistanceFunction, UsedFields, Tfidf, StopWords, Interpreted, Lemmatized, Source, Synonyms, GermaNetFunction, F1WeightedAvg REAL, F1WeightedStd REAL, CohesionAvg REAL, CohesionStd REAL, SeperationAvg REAL, SeperationStd REAL, SilhouetteAvg REAL, SilhouetteStd REAL, RuntimeAvg REAL);
+	.separator ";"
+	.import "alpha.csv" "alpha"
+	DELETE from alpha WHERE SeperationAvg = 'SeperationAvg';
+	DELETE from alpha WHERE ClusterAlgorithm = '';
+	
+	create table beta (ClusterAlgorithm, DistanceFunction, UsedFields, Tfidf, StopWords, Interpreted, Lemmatized, Source, Synonyms, GermaNetFunction, F1WeightedAvg REAL, F1WeightedStd REAL, CohesionAvg REAL, CohesionStd REAL, SeperationAvg REAL, SeperationStd REAL, SilhouetteAvg REAL, SilhouetteStd REAL, RuntimeAvg REAL);
+	.separator ";"
+	.import "beta.csv" "beta"
+	DELETE from beta WHERE SeperationAvg = 'SeperationAvg';
+	DELETE from beta WHERE ClusterAlgorithm = '';
+	
+	create table gamma (ClusterAlgorithm, DistanceFunction, UsedFields, Tfidf, StopWords, Interpreted, Lemmatized, Source, Synonyms, GermaNetFunction, F1WeightedAvg REAL, F1WeightedStd REAL, CohesionAvg REAL, CohesionStd REAL, SeperationAvg REAL, SeperationStd REAL, SilhouetteAvg REAL, SilhouetteStd REAL, RuntimeAvg REAL);
+	.separator ";"
+	.import "gamma.csv" "gamma"
+	DELETE from gamma WHERE SeperationAvg = 'SeperationAvg';
+	DELETE from gamma WHERE ClusterAlgorithm = '';
+	
+	create table delta (ClusterAlgorithm, DistanceFunction, UsedFields, Tfidf, StopWords, Interpreted, Lemmatized, Source, Synonyms, GermaNetFunction, F1WeightedAvg REAL, F1WeightedStd REAL, CohesionAvg REAL, CohesionStd REAL, SeperationAvg REAL, SeperationStd REAL, SilhouetteAvg REAL, SilhouetteStd REAL, RuntimeAvg REAL);
+	.separator ";"
+	.import "delta.csv" "delta"
+	DELETE from delta WHERE SeperationAvg = 'SeperationAvg';
+	DELETE from delta WHERE ClusterAlgorithm = '';
+		
+	create table zeta (ClusterAlgorithm, DistanceFunction, UsedFields, Tfidf, StopWords, Interpreted, Lemmatized, Source, Synonyms, GermaNetFunction, F1WeightedAvg REAL, F1WeightedStd REAL, CohesionAvg REAL, CohesionStd REAL, SeperationAvg REAL, SeperationStd REAL, SilhouetteAvg REAL, SilhouetteStd REAL, RuntimeAvg REAL);
+	.separator ";"
+	.import "zeta.csv" "zeta"
+	DELETE from zeta WHERE SeperationAvg = 'SeperationAvg';
+	DELETE from zeta WHERE ClusterAlgorithm = '';
+	
+	EOF
+
+
+## 
