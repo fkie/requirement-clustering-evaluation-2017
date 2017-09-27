@@ -37,4 +37,22 @@
 	EOF
 
 
-## 
+## Verification
+
+	select "alpha", count(*) from alpha
+	UNION ALL 
+	select "beta", count(*) from beta
+	UNION ALL 
+	select "delta", count(*) from delta
+	UNION ALL 
+	select "gamma", count(*) from gamma
+	UNION ALL 
+	select "zeta", count(*) from zeta
+
+Table | count(*)
+----|----
+"alpha"|"7728"
+"beta"|"7728"
+"delta"|"7728"
+"gamma"|"7728"
+"zeta"|"7728"
