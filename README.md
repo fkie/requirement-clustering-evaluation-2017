@@ -143,3 +143,67 @@ ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmati
 |ClusterART|Not needed|1|false|true|false|true|false|false|Shotgun|0.46|
 |KMeans820|CosineDistance|4|true|true|true|true|false|false|null|0.45|
 |HC|ManhattanDistance|1|false|false|true|true|false|false|OneAncestor|0.42|
+
+
+## Yield of Requirement Templating Approaches
+
+	select UsedFields, Interpreted, round(max(F1WeightedAvg), 2) from alpha
+	group by UsedFields, Interpreted
+	
+### Alpha
+
+UsedFields|Interpreted|BestF1
+-----|------|------
+|1|false|0.37|
+|1|true|0.37|
+|7|false|0.36|
+|4|true|0.34|
+|7|true|0.34|
+|4|false|0.33|
+
+
+### Beta
+
+UsedFields|Interpreted|BestF1
+-----|------|------
+|4|false|0.71|
+|7|false|0.68|
+|7|true|0.67|
+|4|true|0.65|
+|1|false|0.64|
+|1|true|0.56|
+
+
+### Gamma
+
+UsedFields|Interpreted|BestF1
+-----|------|------
+|7|false|0.54|
+|4|false|0.52|
+|4|true|0.5|
+|7|true|0.5|
+|1|false|0.48|
+|1|true|0.47|
+
+
+### Delta
+
+UsedFields|Interpreted|BestF1
+-----|------|------
+|7|false|0.66|
+|4|false|0.65|
+|7|true|0.6|
+|4|true|0.54|
+|1|false|0.53|
+|1|true|0.52|
+
+### Zeta
+
+UsedFields|Interpreted|BestF1
+-----|------|------
+|4|false|0.54|
+|7|true|0.51|
+|1|false|0.49|
+|1|true|0.48|
+|7|false|0.47|
+|4|true|0.45|
