@@ -49,10 +49,97 @@
 	UNION ALL 
 	select "zeta", count(*) from zeta
 
-Table | count(*)
+dataset | count
 ----|----
-"alpha"|"7728"
-"beta"|"7728"
-"delta"|"7728"
-"gamma"|"7728"
-"zeta"|"7728"
+alpha|7728
+beta|7728
+gamma|7728
+delta|7728
+zeta|7728
+
+
+## Best performances per dataset
+
+	select "alpha", ROUND(max(F1WeightedAvg), 2), ROUND(avg(F1WeightedAvg), 2) from alpha
+	UNION ALL 
+	select "beta", ROUND(max(F1WeightedAvg), 2), ROUND(avg(F1WeightedAvg), 2) from beta
+	UNION ALL 
+	select "delta", ROUND(max(F1WeightedAvg), 2), ROUND(avg(F1WeightedAvg), 2) from delta
+	UNION ALL 
+	select "gamma", ROUND(max(F1WeightedAvg), 2), ROUND(avg(F1WeightedAvg), 2)  from gamma
+	UNION ALL 
+	select "zeta", ROUND(max(F1WeightedAvg), 2), ROUND(avg(F1WeightedAvg), 2) from zeta
+
+
+dataset|max F1|avg F1
+-----|-----|-----
+alpha|0.37|0.19
+beta|0.71|0.42
+gamma|0.54|0.32
+delta|0.66|0.37
+zeta|0.54|0.3
+
+## Single best parameter performances per dataset and algorithm
+
+	select ClusterAlgorithm, DistanceFunction, UsedFields, Tfidf, StopWords, Interpreted, Lemmatized, Source, Synonyms, GermaNetFunction, ROUND(max(F1WeightedAvg), 2) BestF1 from alpha
+	group by ClusterAlgorithm
+	order by BestF1 desc
+	
+### Alpha
+
+ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction|ROUND(max(F1WeightedAvg)
+----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----
+ClusterART|Not needed|1|false|true|false|true|false|false|Shotgun|0.37
+FuzzyCMeans2320|CosineDistance|7|true|false|false|true|false|false|null|0.36
+KMeans2320|CosineDistance|7|true|false|false|true|false|true|null|0.35
+EM|Not needed|7|false|true|true|false|false|false|null|0.34
+Neural Gas|CosineDistance|4|true|true|true|true|false|false|null|0.32
+HC|ManhattanDistance|1|true|false|true|true|false|true|OneAncestor|0.3
+
+
+### Beta
+
+ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction|ROUND(max(F1WeightedAvg)
+----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----
+|ClusterART|Not needed|4|false|true|false|true|false|true|Shotgun|0.71|
+|Neural Gas|CosineDistance|7|false|true|false|false|true|false|null|0.68|
+|FuzzyCMeans1520|CanberraDistance|4|true|false|true|false|false|false|null|0.65|
+|KMeans1520|EuclideanDistance|4|true|true|true|false|false|false|null|0.57|
+|HC|EuclideanDistance|7|false|true|false|true|true|true|Shotgun|0.56|
+|EM|Not needed|4|true|true|false|true|true|false|null|0.49|
+
+
+### Gamma
+
+ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction|ROUND(max(F1WeightedAvg)
+----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----
+|ClusterART|Not needed|7|true|true|false|true|false|false|OneAncestor|0.54|
+|HC|EuclideanDistance|4|false|false|false|true|true|true|null|0.52|
+|FuzzyCMeans1920|ManhattanDistance|4|false|true|false|false|true|false|null|0.49|
+|KMeans1920|ManhattanDistance|7|true|false|false|false|true|false|null|0.49|
+|Neural Gas|EuclideanDistance|4|false|false|true|false|false|false|null|0.49|
+|EM|Not needed|4|true|true|false|false|true|false|null|0.46|
+
+
+### Delta
+
+ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction|ROUND(max(F1WeightedAvg)
+----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----
+|ClusterART|Not needed|7|true|false|false|true|true|true|Shotgun|0.66|
+|Neural Gas|EuclideanDistance|7|false|true|false|false|true|false|null|0.54|
+|HC|ManhattanDistance|7|false|false|false|true|true|false|OneAncestor|0.52|
+|FuzzyCMeans1620|ManhattanDistance|7|false|true|false|true|true|true|null|0.5|
+|KMeans1620|ManhattanDistance|4|false|true|false|false|true|false|null|0.49|
+|EM|Not needed|4|true|true|false|true|true|false|Shotgun|0.48|
+
+
+### Zeta
+
+ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction|ROUND(max(F1WeightedAvg)
+----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----
+|EM|Not needed|4|true|false|false|true|false|false|null|0.54|
+|Neural Gas|CosineDistance|7|false|true|true|true|false|true|OneAncestor|0.51|
+|FuzzyCMeans820|EuclideanDistance|4|true|false|false|false|false|false|null|0.49|
+|ClusterART|Not needed|1|false|true|false|true|false|false|Shotgun|0.46|
+|KMeans820|CosineDistance|4|true|true|true|true|false|false|null|0.45|
+|HC|ManhattanDistance|1|false|false|true|true|false|false|OneAncestor|0.42|
