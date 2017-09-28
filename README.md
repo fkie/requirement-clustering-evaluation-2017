@@ -207,3 +207,69 @@ UsedFields|Interpreted|BestF1
 |1|true|0.48|
 |7|false|0.47|
 |4|true|0.45|
+
+
+## Impact of Requirement Text Templating Schemes
+
+	select ClusterAlgorithm, DistanceFunction, UsedFields, Tfidf, StopWords, Interpreted, Lemmatized, Source, Synonyms, GermaNetFunction, ROUND(max(F1WeightedAvg), 2) BestF1 from alpha
+	group by UsedFields, Interpreted
+	order by BestF1 desc
+
+### Alpha
+
+ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction|ROUND(max(F1WeightedAvg)
+----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----
+|ClusterART|Not needed|1|false|true|false|true|false|false|Shotgun|0.37|
+|ClusterART|Not needed|1|false|true|true|true|false|false|Shotgun|0.37|
+|FuzzyCMeans2320|CosineDistance|7|true|false|false|true|false|false|null|0.36|
+|KMeans2320|ManhattanDistance|4|false|true|true|true|true|true|OneAncestor|0.34|
+|EM|Not needed|7|false|true|true|false|false|false|null|0.34|
+|FuzzyCMeans2320|EuclideanDistance|4|true|true|false|true|false|true|OneAncestor|0.33|
+
+
+### Beta
+
+ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction|ROUND(max(F1WeightedAvg)
+----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----
+|ClusterART|Not needed|4|false|true|false|true|false|true|Shotgun|0.71|
+|Neural Gas|CosineDistance|7|false|true|false|false|true|false|null|0.68|
+|ClusterART|Not needed|7|false|true|true|true|false|false|null|0.67|
+|FuzzyCMeans1520|CanberraDistance|4|true|false|true|false|false|false|null|0.65|
+|ClusterART|Not needed|1|false|true|false|true|true|false|null|0.64|
+|Neural Gas|ManhattanDistance|1|false|false|true|true|true|true|OneAncestor|0.56|
+
+
+### Gamma
+
+ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction|ROUND(max(F1WeightedAvg)
+----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----
+|ClusterART|Not needed|7|true|true|false|true|false|false|OneAncestor|0.54|
+|ClusterART|Not needed|4|false|true|false|true|false|false|OneAncestor|0.52|
+|ClusterART|Not needed|4|false|true|true|false|false|false|null|0.5|
+|ClusterART|Not needed|7|true|true|true|true|false|true|OneAncestor|0.5|
+|HC|EuclideanDistance|1|false|false|false|true|true|false|OneAncestor|0.48|
+|ClusterART|Not needed|1|false|false|true|true|false|true|Shotgun|0.47|
+
+
+### Delta
+
+ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction|ROUND(max(F1WeightedAvg)
+----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----
+|ClusterART|Not needed|7|true|false|false|true|true|true|Shotgun|0.66|
+|ClusterART|Not needed|4|true|false|false|true|true|true|Shotgun|0.65|
+|ClusterART|Not needed|7|false|true|true|true|false|false|null|0.6|
+|ClusterART|Not needed|4|false|true|true|false|false|false|null|0.54|
+|ClusterART|Not needed|1|false|false|false|true|true|true|null|0.53|
+|ClusterART|Not needed|1|false|false|true|true|false|false|OneAncestor|0.52|
+
+
+### Zeta
+
+ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction|ROUND(max(F1WeightedAvg)
+----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----
+|EM|Not needed|4|true|false|false|true|false|false|null|0.54|
+|Neural Gas|CosineDistance|7|false|true|true|true|false|true|OneAncestor|0.51|
+|FuzzyCMeans820|EuclideanDistance|1|true|false|false|true|false|false|OneAncestor|0.49|
+|Neural Gas|CosineDistance|1|false|true|true|true|false|false|null|0.48|
+|FuzzyCMeans820|EuclideanDistance|7|true|true|false|true|false|false|null|0.47|
+|FuzzyCMeans820|CanberraDistance|4|true|false|true|true|false|false|null|0.45|
