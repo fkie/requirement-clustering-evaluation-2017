@@ -329,8 +329,8 @@ true|0.19|0.19|0.19|0.19|0.19|0.19
 	
 ### Alpha
 
-ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction
-------|------|------|------|------|------|------|------|------|------|
+ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction|Count
+------|------|------|------|------|------|------|------|------|------|------|
 FuzzyCMeans2320|CosineDistance|7|false|false|true|true|true|true|OneAncestor|18
 FuzzyCMeans2320|CanberraDistance|7|true|true|true|true|true|true|null|14
 KMeans2320|ManhattanDistance|7|false|true|true|true|true|false|null|14
@@ -342,8 +342,8 @@ EM|Not needed|4|false|false|false|true|false|false|null|3
 
 ### Beta
 
-ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction
-------|------|------|------|------|------|------|------|------|------|
+ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction|Count
+------|------|------|------|------|------|------|------|------|------|------|
 FuzzyCMeans1520|EuclideanDistance|7|true|false|false|true|true|true|OneAncestor|19
 FuzzyCMeans1520|ChebyshevDistance|4|true|true|true|false|true|false|null|12
 ClusterART|Not needed|7|false|true|true|true|true|false|OneAncestor|10
@@ -356,8 +356,8 @@ Neural Gas|EuclideanDistance|4|false|false|false|true|true|true|OneAncestor|2
 
 
 ### Gamma
-ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction
-------|------|------|------|------|------|------|------|------|------|
+ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction|Count
+------|------|------|------|------|------|------|------|------|------|------|
 ClusterART|Not needed|7|true|false|false|true|true|false|null|34
 HC|EuclideanDistance|4|true|false|false|true|true|false|null|26
 HC|ManhattanDistance|4|true|false|false|false|true|false|null|16
@@ -365,14 +365,14 @@ FuzzyCMeans1920|ManhattanDistance|4|false|true|false|false|true|false|null|1
 
 
 ### Delta
-ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction
-------|------|------|------|------|------|------|------|------|------|
+ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction|Count
+------|------|------|------|------|------|------|------|------|------|------|
 ClusterART|Not needed|4|true|true|false|false|true|false|null|77
 
 
 ### Zeta
-ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction
-------|------|------|------|------|------|------|------|------|------|
+ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction|Count
+------|------|------|------|------|------|------|------|------|------|------|
 FuzzyCMeans820|CanberraDistance|4|false|false|false|true|false|true|null|27
 FuzzyCMeans820|EuclideanDistance|4|true|true|false|true|false|true|OneAncestor|17
 Neural Gas|CosineDistance|1|false|true|false|true|false|false|OneAncestor|16
