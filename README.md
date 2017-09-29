@@ -273,3 +273,68 @@ ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmati
 |Neural Gas|CosineDistance|1|false|true|true|true|false|false|null|0.48|
 |FuzzyCMeans820|EuclideanDistance|7|true|true|false|true|false|false|null|0.47|
 |FuzzyCMeans820|CanberraDistance|4|true|false|true|true|false|false|null|0.45|
+
+
+
+## Average F1 Performancs for isolated features
+
+	select tfidf as "", round(avg(F1WeightedAvg), 2) TFIDFF1, StopWords.StopWordsF1, Interpreted.InterpretedF1, Lemmatized.LemmatizedF1, Source.SourceF1, Synonyms.SynonymsF1 from alpha
+	left outer join (
+	select Lemmatized, round(avg(F1WeightedAvg), 2) LemmatizedF1 from alpha
+	group by Lemmatized
+	) Lemmatized
+	on Lemmatized.Lemmatized = tfidf
+	left outer join (
+	select StopWords, round(avg(F1WeightedAvg), 2) StopWordsF1 from alpha
+	group by StopWords
+	) StopWords
+	on StopWords.StopWords = tfidf
+	left outer join (
+	select Interpreted, round(avg(F1WeightedAvg), 2) InterpretedF1 from alpha
+	group by Interpreted
+	) Interpreted
+	on Interpreted.Interpreted = tfidf
+	left outer join (
+	select Source, round(avg(F1WeightedAvg), 2) SourceF1 from alpha
+	group by Source
+	) Source
+	on Source.Source = tfidf
+	left outer join (
+	select Synonyms, round(avg(F1WeightedAvg), 2) SynonymsF1 from alpha
+	group by Synonyms
+	) Synonyms
+	on Synonyms.Synonyms = tfidf
+	group by tfidf
+
+### alpha
+
+|TFIDF|Stopwords|Interpreted|Lemmatized|Source|Synonyms|
+-----|-----|-----|-----|-----|-----|
+false|0.19|0.19|0.19|0.19|0.2|0.19
+true|0.19|0.19|0.19|0.19|0.19|0.19
+
+
+
+
+
+## Combination counts in the best 1%
+
+	select ClusterAlgorithm, DistanceFunction, UsedFields, Tfidf, StopWords, Interpreted, Lemmatized, Source, Synonyms, GermaNetFunction, count(*) counts from (
+	select * from alpha
+	order by F1WeightedAvg desc
+	limit 77) onepercent
+	group by ClusterAlgorithm, DistanceFunction
+	order by counts desc
+
+	
+### Alpha
+
+ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction
+------|------|------|------|------|------|------|------|------|------|
+FuzzyCMeans2320|CosineDistance|7|false|false|true|true|true|true|OneAncestor|18
+FuzzyCMeans2320|CanberraDistance|7|true|true|true|true|true|true|null|14
+KMeans2320|ManhattanDistance|7|false|true|true|true|true|false|null|14
+ClusterART|Not needed|1|true|false|true|true|true|false|Shotgun|12
+FuzzyCMeans2320|EuclideanDistance|4|true|true|false|true|false|false|null|8
+KMeans2320|CosineDistance|7|true|false|false|true|true|true|null|8
+EM|Not needed|4|false|false|false|true|false|false|null|3
