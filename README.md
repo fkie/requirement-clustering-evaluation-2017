@@ -338,3 +338,44 @@ ClusterART|Not needed|1|true|false|true|true|true|false|Shotgun|12
 FuzzyCMeans2320|EuclideanDistance|4|true|true|false|true|false|false|null|8
 KMeans2320|CosineDistance|7|true|false|false|true|true|true|null|8
 EM|Not needed|4|false|false|false|true|false|false|null|3
+
+
+### Beta
+
+ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction
+------|------|------|------|------|------|------|------|------|------|
+FuzzyCMeans1520|EuclideanDistance|7|true|false|false|true|true|true|OneAncestor|19
+FuzzyCMeans1520|ChebyshevDistance|4|true|true|true|false|true|false|null|12
+ClusterART|Not needed|7|false|true|true|true|true|false|OneAncestor|10
+FuzzyCMeans1520|CanberraDistance|4|true|true|true|false|false|false|null|8
+FuzzyCMeans1520|ManhattanDistance|4|false|true|true|false|true|false|null|8
+Neural Gas|CosineDistance|7|false|false|false|true|true|true|OneAncestor|8
+Neural Gas|CanberraDistance|7|true|false|false|false|true|false|null|6
+FuzzyCMeans1520|CosineDistance|4|true|true|true|false|true|false|null|4
+Neural Gas|EuclideanDistance|4|false|false|false|true|true|true|OneAncestor|2
+
+
+### Gamma
+ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction
+------|------|------|------|------|------|------|------|------|------|
+ClusterART|Not needed|7|true|false|false|true|true|false|null|34
+HC|EuclideanDistance|4|true|false|false|true|true|false|null|26
+HC|ManhattanDistance|4|true|false|false|false|true|false|null|16
+FuzzyCMeans1920|ManhattanDistance|4|false|true|false|false|true|false|null|1
+
+
+### Delta
+ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction
+------|------|------|------|------|------|------|------|------|------|
+ClusterART|Not needed|4|true|true|false|false|true|false|null|77
+
+
+### Zeta
+ClusterAlgorithm|DistanceFunction|UsedFields|Tfidf|StopWords|Interpreted|Lemmatized|Source|Synonyms|GermaNetFunction
+------|------|------|------|------|------|------|------|------|------|
+FuzzyCMeans820|CanberraDistance|4|false|false|false|true|false|true|null|27
+FuzzyCMeans820|EuclideanDistance|4|true|true|false|true|false|true|OneAncestor|17
+Neural Gas|CosineDistance|1|false|true|false|true|false|false|OneAncestor|16
+Neural Gas|CanberraDistance|1|false|true|true|false|false|false|null|13
+EM|Not needed|4|true|false|false|true|false|true|null|3
+Neural Gas|ChebyshevDistance|1|true|false|false|true|true|true|Shotgun|1
