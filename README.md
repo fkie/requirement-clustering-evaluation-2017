@@ -379,3 +379,60 @@ Neural Gas|CosineDistance|16
 Neural Gas|CanberraDistance|13
 EM|Not needed|3
 Neural Gas|ChebyshevDistance|1
+
+
+
+## Impact of Source
+
+	select Source, round(max(F1WeightedAvg), 2) from beta
+	group by Source
+
+
+### Alpha
+Source|F1
+---|---
+false|0.37
+true|0.37
+
+### Beta
+Source|F1
+---|---
+false|0.71
+true|0.68
+
+### Gamma
+Source|F1
+---|---
+false|0.54
+true|0.52
+
+### Delta
+Source|F1
+---|---
+false|0.66
+true|0.66	
+
+
+
+## Impact of Context Determination and Ontology-based Text Enrichment
+
+	select Synonyms, GermaNetFunction, round(max(F1WeightedAvg), 2) from alpha
+	group by Synonyms, GermaNetFunction
+	
+
+
+
+## Most successful setup
+
+	select Stopwords,UsedFields, tfidf, Synonyms, F1WeightedAvg from delta
+	where
+	Lemmatized = "true" and interpreted = "false" and Source = "false"
+	and ClusterAlgorithm = "ClusterART" and GermaNetFunction = "Shotgun" 
+	and Tfidf = "true" 
+
+### low quality 
+	and UsedFields = "1" and Synonyms = "false" and Stopwords = "true"
+
+
+### hight quality
+	and UsedFields = "4" and Synonyms = "true" and stopwords = "false"
