@@ -431,8 +431,8 @@ true|0.66
 	and Tfidf = "true" 
 
 ### low quality 
-	and UsedFields = "1" and Synonyms = "false" and Stopwords = "true"
+	and UsedFields = "1" and Synonyms = "false" and stopwords = "true"
 
 
-### hight quality
+### high quality
 	and UsedFields = "4" and Synonyms = "true" and stopwords = "false"
